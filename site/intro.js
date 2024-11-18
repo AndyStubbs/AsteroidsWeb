@@ -66,7 +66,7 @@
 			"lineJoin": "round",
 		};
 		const styleTitle = new PIXI.TextStyle( styleProperties );
-		intro.title = new PIXI.Text( "ASTROIDS", styleTitle );
+		intro.title = new PIXI.Text( "asteroids", styleTitle );
 		intro.title.anchor.set( 0.5, 0.5 );
 		let pos = g.app.stage.toLocal(
 			new PIXI.Point( g.app.screen.width / 2, g.app.screen.height )

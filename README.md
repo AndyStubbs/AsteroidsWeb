@@ -1,2 +1,2 @@
-# Astroids
-A simple Astroids clone
+# asteroids
+A simple asteroids clone

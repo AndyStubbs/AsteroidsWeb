@@ -1,6 +1,6 @@
 {
-  "name": "astroids",
-  "description": "A simple Astroids clone",
+  "name": "asteroids",
+  "description": "A simple asteroids clone",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndyStubbs/Astroids.git"
+    "url": "git+https://github.com/AndyStubbs/asteroids.git"
   },
   "author": "Andy Stubbs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AndyStubbs/Astroids/issues"
+    "url": "https://github.com/AndyStubbs/asteroids/issues"
   },
-  "homepage": "https://github.com/AndyStubbs/Astroids#readme",
+  "homepage": "https://github.com/AndyStubbs/asteroids#readme",
   "devDependencies": {
     "connect": "^3.7.0",
     "serve-static": "^1.15.0"

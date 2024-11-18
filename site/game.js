@@ -11,8 +11,8 @@
 		game.world.scale.x = 0.4;
 		game.world.scale.y = 0.4;
 		g.app.stage.addChild( game.world );
-		game.astroids = [];
-		createAstroids( game.level * 2 + 1, 3 );
+		game.asteroids = [];
+		createasteroids( game.level * 2 + 1, 3 );
 		g.app.ticker.add( run );
 	};
 
@@ -32,7 +32,7 @@
 
 	function createTextureGroups() {
 		game.textureGroups = {};
-		game.textureGroups.bigAstroids = [
+		game.textureGroups.bigasteroids = [
 			g.spritesheet.textures[ "meteorBrown_big1.png" ],
 			g.spritesheet.textures[ "meteorBrown_big2.png" ],
 			g.spritesheet.textures[ "meteorBrown_big3.png" ],
@@ -42,13 +42,13 @@
 			g.spritesheet.textures[ "meteorGrey_big3.png" ],
 			g.spritesheet.textures[ "meteorGrey_big4.png" ],
 		];
-		game.textureGroups.mediumAstroids = [
+		game.textureGroups.mediumasteroids = [
 			g.spritesheet.textures[ "meteorBrown_med1.png" ],
 			g.spritesheet.textures[ "meteorBrown_med3.png" ],
 			g.spritesheet.textures[ "meteorGrey_med1.png" ],
 			g.spritesheet.textures[ "meteorGrey_med2.png" ]
 		];
-		game.textureGroups.smallAstroids = [
+		game.textureGroups.smallasteroids = [
 			g.spritesheet.textures[ "meteorBrown_small1.png" ],
 			g.spritesheet.textures[ "meteorBrown_small2.png" ],
 			g.spritesheet.textures[ "meteorGrey_small1.png" ],
@@ -94,7 +94,7 @@
 		];
 	}
 
-	function createAstroids( count, size, pos ) {
+	function createasteroids( count, size, pos ) {
 		for ( let i = 0; i < count; i++ ) {
 
 			// Create the astroid object
@@ -113,14 +113,14 @@
 			astroid.container.scale.y = 1.5;
 			
 			// Create the astroid body
-			let textureGroup = game.textureGroups.bigAstroids;
+			let textureGroup = game.textureGroups.bigasteroids;
 			let explosionScale = 2.3;
 			if( size === 2 ) {
 				explosionScale = 1.0;
-				textureGroup = game.textureGroups.mediumAstroids;
+				textureGroup = game.textureGroups.mediumasteroids;
 			} else if( size === 1 ) {
 				explosionScale = 0.5;
-				textureGroup = game.textureGroups.smallAstroids;
+				textureGroup = game.textureGroups.smallasteroids;
 			}
 			const texture = textureGroup[ Math.floor( Math.random() * textureGroup.length ) ];
 			astroid.body = new PIXI.Sprite( texture );
@@ -152,7 +152,7 @@
 			astroid.container.addChild( astroid.explosion );
 
 			// Add astroid components
-			game.astroids.push( astroid );
+			game.asteroids.push( astroid );
 
 			// Add the astroid to the world
 			game.world.addChild( astroid.container );
@@ -348,7 +348,7 @@
 		g.app.stage.addChild( game.ui.score );
 
 		// Add Astroid Counter
-		game.ui.astroidCounter = new PIXI.Text( game.astroids.length, {
+		game.ui.astroidCounter = new PIXI.Text( game.asteroids.length, {
 			"fontFamily": "Arial",
 			"fontSize": 24,
 			"fill": 0x000000,
@@ -373,7 +373,7 @@
 		game.ui.lives.text = game.lives;
 		game.ui.score.text = game.score;
 		game.ui.level.text = "Level: " + game.level;
-		game.ui.astroidCounter.text = game.astroids.length;
+		game.ui.astroidCounter.text = game.asteroids.length;
 	}
 
 	function run( delta ) {
@@ -382,7 +382,7 @@
 			moveBullets( game.ship.bullets, delta );
 		}
 
-		moveAstroids( game.astroids, delta );
+		moveasteroids( game.asteroids, delta );
 	}
 
 	function moveShip( ship, delta ) {
@@ -431,8 +431,8 @@
 					bullet.container.alpha = bullet.lifespan / 10;
 				}
 
-				// check for collisions with the astroids
-				game.astroids.forEach( ( astroid ) => {
+				// check for collisions with the asteroids
+				game.asteroids.forEach( ( astroid ) => {
 					if( !astroid.isAlive ) {
 						return;
 					}
@@ -463,8 +463,8 @@
 		}
 		game.score += 10;
 		astroid.afterKilled = () => {
-			game.astroids.splice( game.astroids.indexOf( astroid ), 1 );
-			if( game.astroids.length === 0 ) {
+			game.asteroids.splice( game.asteroids.indexOf( astroid ), 1 );
+			if( game.asteroids.length === 0 ) {
 				if( g.soundLoaded ) {
 					g.assets.audio[ "win" ].play();
 				}
@@ -473,7 +473,7 @@
 				setTimeout( () => {
 					game.ship.shieldCooldown = game.ship.shieldCooldownMax;
 					game.ship.shield.visible = true;
-					createAstroids( game.level * 2 + 1, 3 );
+					createasteroids( game.level * 2 + 1, 3 );
 					updateUi();
 				}, 2000 );
 				game.score += 100;
@@ -481,7 +481,7 @@
 			updateUi();
 		};
 		if( astroid.size > 1 ) {
-			createAstroids(
+			createasteroids(
 				astroid.size,
 				astroid.size - 1,
 				{ "x": astroid.container.x, "y": astroid.container.y }
@@ -490,8 +490,8 @@
 		killObject( astroid );
 	}
 
-	function moveAstroids( astroids, delta ) {
-		astroids.forEach( ( astroid ) => {
+	function moveasteroids( asteroids, delta ) {
+		asteroids.forEach( ( astroid ) => {
 			astroid.container.x += Math.cos( astroid.moveAngle ) * astroid.speed * delta;
 			astroid.container.y += Math.sin( astroid.moveAngle ) * astroid.speed * delta;
 			astroid.body.rotation += astroid.rotationSpeed * delta;
@@ -499,7 +499,7 @@
 			if( !astroid.isAlive ) {
 				return;
 			}
-			// Wrap the astroids
+			// Wrap the asteroids
 			wrapObject( astroid.container );
 
 			// Check for collisions with the ship
@@ -520,7 +520,7 @@
 							g.app.stage.addChild( g.assets.background );
 							g.app.ticker.remove( run );
 							game.level = 1;
-							game.astroids = [];
+							game.asteroids = [];
 							g.createWorld();
 							document.removeEventListener( "keydown", keydown );
 							document.removeEventListener( "keyup", keyup );
