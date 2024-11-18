@@ -1,10 +1,10 @@
 # asteroids
 
-Asteroids is a classic arcade-inspired game where players navigate a spaceship through space, avoiding and destroying asteroids to survive as long as possible. The game combines fast-paced action with simple yet addictive mechanics.
+Asteroids is a classic arcade-inspired game where players navigate a spaceship through space, avoiding and destroying asteroids to survive as long as possible.
 
 ## Features
 - **Arcade-style gameplay**: Pilot your spaceship and destroy asteroids for high scores.
-- **Classic mechanics**: Inspired by the original Asteroids arcade game with a modern graphics.
+- **Classic mechanics**: Inspired by the original Asteroids arcade game.
 - **Dynamic challenges**: Asteroids move at varying speeds, increasing difficulty as the game progresses.
 
 ---
