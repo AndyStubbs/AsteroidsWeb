@@ -50,4 +50,4 @@ npm install
 
 ## Credits
 
-- **Graphics**: Most of the graphics in FloppyFish were based on work by [kenney.nl](https://kenney.nl), a fantastic resource for free game assets.
+- **Graphics**: Most of the graphics in this project were based on work by [kenney.nl](https://kenney.nl), a fantastic resource for free game assets.
