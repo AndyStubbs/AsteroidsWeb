@@ -2,6 +2,12 @@
 
 Asteroids is a classic arcade-inspired game where players navigate a spaceship through space, avoiding and destroying asteroids to survive as long as possible.
 
+## Play Online
+You can play the game online at:  
+[Asteroids on Andy's Web Games](https://www.andyswebgames.com/games/asteroids)
+
+---
+
 ## Features
 - **Arcade-style gameplay**: Pilot your spaceship and destroy asteroids for high scores.
 - **Classic mechanics**: Inspired by the original Asteroids arcade game.
@@ -15,12 +21,6 @@ Asteroids is a classic arcade-inspired game where players navigate a spaceship t
   - **Left/Right Arrows**: Rotate your spaceship.
 - **Fire**: Press the **Spacebar** to shoot and destroy asteroids.
 - **Objective**: Avoid collisions with asteroids while shooting them to score points. Survive as long as possible!
-
----
-
-## Play Online
-You can play the game online at:  
-[Asteroids on Andy's Web Games](https://www.andyswebgames.com/games/asteroids)
 
 ---
 
